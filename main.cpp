@@ -10,7 +10,7 @@ unsigned reverse(unsigned n, unsigned level)
     return n;
 }
 
-unsigned crc16(char* data, int size, unsigned poly, unsigned init, bool RefIn, bool RefOut, unsigned XorOut)
+unsigned crc16(const char* data, int size, unsigned poly, unsigned init, bool RefIn, bool RefOut, unsigned XorOut)
 {
     unsigned crc = init;
     while(--size >= 0){
@@ -22,7 +22,7 @@ unsigned crc16(char* data, int size, unsigned poly, unsigned init, bool RefIn, b
     return reverse(crc, RefOut ? 3 : 0) & 0x0000FFFF;
 }
 
-unsigned crc32(char* data, int size, unsigned poly, unsigned init, bool RefIn, bool RefOut, unsigned XorOut)
+unsigned crc32(const char* data, int size, unsigned poly, unsigned init, bool RefIn, bool RefOut, unsigned XorOut)
 {
     unsigned crc = init;
     while(--size >= 0){
